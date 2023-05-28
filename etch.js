@@ -71,15 +71,6 @@ buttons.forEach(button => button.addEventListener('click', (e) => {
     }
 }))
 
-function goThroughAll(color) {
-    pops = document.querySelectorAll(".pop");
-        pops.forEach(pop => {
-            pop.addEventListener('mouseenter', () => {
-                pop.style.backgroundColor = `color`;
-            })
-        })
-}
-
 function addElement(amount) {
     for(let i = 0; i < amount; i++) {
         for(let j = 0; j < amount; j++) {
