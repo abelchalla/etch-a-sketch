@@ -5,7 +5,7 @@ const colorPicker = document.querySelector("#colorPicker");
 const label = document.querySelector("label");
 let newDiv;
 let currentColor = "";
-let isRainbowActive = false;
+let isRainbowActive = true;
 let pops;
 
 colorPicker.addEventListener('change', (e) => {
@@ -18,13 +18,12 @@ colorPicker.addEventListener('change', (e) => {
     }))
 })
 
-div.onload = addElement(50);
-
+window.onload = addElement(50);
 
 slider.addEventListener('input', (e) => {
     div.innerHTML = '';
     label.innerHTML = `Value: ${e.target.value}`
-    div.onload = addElement(e.target.value);
+    addElement(e.target.value);
     if(isRainbowActive == true) {
         const pops = document.querySelectorAll(".pop");
         pops.forEach(pop => {
@@ -84,6 +83,7 @@ function addElement(amount) {
             newDiv.style.width = `${100.0 / amount}%`;
             newDiv.style.height = `${100.0 / amount}%`;
             div.appendChild(newDiv);
+
         }
     }
 }
@@ -91,4 +91,3 @@ function addElement(amount) {
 function randomColor() {
     return `${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.random()}`
 }
-
